@@ -1,0 +1,23 @@
+<form [formGroup]="profileForm" (submit)='OnSubmit()'>
+
+    <label>
+        Upazilla:
+        <input type="text" formControlName="Upazila">
+    </label>
+
+    <div formArrayName="UnionData">
+        <div *ngFor="let u of UnionData.controls; let i=index">
+          <div [formGroupName]="i">
+            Union name :
+            <input type="text" formControlName="Name">
+            Fld1:
+            <input type="text" formControlName="Fld1" >     
+            Fld2:
+            <input type="text" formControlName="Fld2">
+          </div>
+        </div>
+      </div>
+
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+
+</form>
